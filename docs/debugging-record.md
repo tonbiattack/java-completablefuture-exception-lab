@@ -1,6 +1,10 @@
 # デバッグ記録
 
-## 再現
+## 最初に観測した事実
+
+supplierは `IllegalStateException` を投げるが、`join()` の境界では `CompletionException` として観測される。
+
+## 再現手順
 
 バグ状態で `mvn --batch-mode test` を実行すると、`expected: <IllegalStateException:upstream unavailable> but was: <CompletionException:java.lang.IllegalStateException: upstream unavailable>` となる。
 
